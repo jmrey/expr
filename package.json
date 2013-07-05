@@ -2,7 +2,7 @@
   "name": "expr",
   "version": "0.0.0",
   "description": "Express bootstrap template.",
-  "main": "index.js",
+  "main": "expr/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,9 @@
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/jmrey/expr/issues"
+  },
+  "dependencies": {
+    "express": "~3.3.3",
+    "winston": "~0.7.2"
   }
 }
