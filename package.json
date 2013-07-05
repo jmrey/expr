@@ -1,0 +1,23 @@
+{
+  "name": "expr",
+  "version": "0.0.0",
+  "description": "Express bootstrap template.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jmrey/expr.git"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "bootstrap"
+  ],
+  "author": "JMRey",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/jmrey/expr/issues"
+  }
+}
