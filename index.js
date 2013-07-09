@@ -1,3 +1,3 @@
-// expr, basic express bootstrap template.
+// expr, basic template for express.
 
 // Author: JMRey
