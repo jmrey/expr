@@ -36,6 +36,15 @@ var expr = {
     this.server.listen(port, function () {
       console.log('Success');
     });
+  },
+  model: function (modelName) {
+    var modelFile = path.join(expr.paths.models, modelName + '.js');
+
+    if (fs.existsSync(modelFile)) {
+      return require(modelFile);
+    } else {
+      this.logger.info('No existe el modelo: ' + modelName + ' at ' + modelFile);
+    }
   }
 };
 
@@ -72,7 +81,19 @@ function configureApp() {
 
   expr.app = app;
   expr.server = http.createServer(app);
+
+  expr.handlers = {
+    route : require(path.join(expr.paths.app, 'routes'))
+  };
+
   expr.logger = expr.lib.Logger(expr.config);
+
+  configureRoutes();
+}
+
+function configureRoutes() {
+  var router = expr.lib.Router(expr);
+  expr.handlers.route(router, expr);
 }
 
 expr.lib = require('./lib');
