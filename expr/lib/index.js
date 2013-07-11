@@ -2,5 +2,6 @@
 "use strict";
 
 module.exports = {
-  Logger  : require('./Logger')
+  Logger  : require('./Logger'),
+  Router  : require('./Router')
 };
