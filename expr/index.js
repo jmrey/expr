@@ -1,4 +1,4 @@
-/* jslint node: true */
+/* jslint node: true, es5: true */
 "use strict";
 
 var express = require('express')
@@ -37,7 +37,7 @@ var expr = {
       console.log('Success');
     });
   },
-  model: function (modelName) {
+  /*model: function (modelName) {
     var modelFile = path.join(expr.paths.models, modelName + '.js');
 
     if (fs.existsSync(modelFile)) {
@@ -45,7 +45,7 @@ var expr = {
     } else {
       this.logger.info('No existe el modelo: ' + modelName + ' at ' + modelFile);
     }
-  }
+  }*/
 };
 
 function loadConfiguration() {
@@ -83,17 +83,24 @@ function configureApp() {
   expr.server = http.createServer(app);
 
   expr.handlers = {
-    route : require(path.join(expr.paths.app, 'routes'))
+    route : require(path.join(expr.paths.app, 'routes')),
+    events: require(path.join(expr.paths.app, 'events'))
   };
 
   expr.logger = expr.lib.Logger(expr.config);
 
   configureRoutes();
+  configureEventHandler();
 }
 
 function configureRoutes() {
   var router = expr.lib.Router(expr);
   expr.handlers.route(router, expr);
+}
+
+function configureEventHandler() {
+  var io = expr.lib.EventHandler(expr);
+  expr.handlers.events(io, expr);
 }
 
 expr.lib = require('./lib');
