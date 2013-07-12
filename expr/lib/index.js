@@ -2,6 +2,7 @@
 "use strict";
 
 module.exports = {
-  Logger  : require('./Logger'),
-  Router  : require('./Router')
+  Logger        : require('./Logger'),
+  Router        : require('./Router'),
+  EventHandler  : require('./EventHandler')
 };
