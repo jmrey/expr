@@ -104,6 +104,7 @@ function configureEventHandler() {
 }
 
 expr.lib = require('./lib');
+expr.utils = require('./utils');
 //expr.base = require('./base');
 
 module.exports = expr;
