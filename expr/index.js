@@ -89,8 +89,13 @@ function configureApp() {
 
   expr.logger = expr.lib.Logger(expr.config);
 
+  configureSessionStore();
   configureRoutes();
   configureEventHandler();
+}
+
+function configureSessionStore() {
+  expr.sessionStore = expr.lib.redis.createClient();
 }
 
 function configureRoutes() {
