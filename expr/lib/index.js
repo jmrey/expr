@@ -4,5 +4,6 @@
 module.exports = {
   Logger        : require('./Logger'),
   Router        : require('./Router'),
-  EventHandler  : require('./EventHandler')
+  EventHandler  : require('./EventHandler'),
+  redis         : require('redis')
 };
