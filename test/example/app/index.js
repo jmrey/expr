@@ -1,4 +1,4 @@
-var expr = require('expr');
+var expr = require('../../../');
 
 expr.run();
 
