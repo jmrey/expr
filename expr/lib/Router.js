@@ -1,6 +1,8 @@
 /* jslint node: true */
 "use strict";
 
+var resource = require('express-resource');
+
 function Router(expr) {
   this.app = expr.app;
   this.expr = expr;
@@ -32,8 +34,8 @@ router.connect = function connect(url, params) {
   this.app.all(url, fn);
 };
 
-router.map = function map() {
-
+router.resource = function resource(url, params, opts) {
+  this.app.resource(url, params, opts);
 };
 
 module.exports = function (instance) {
